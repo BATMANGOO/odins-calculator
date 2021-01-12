@@ -1,54 +1,41 @@
 'use strict';
-const input = document.querySelector('.calculator-screen');
-const operators = document.querySelectorAll('.operator');
+const currentOuputText = document.querySelector('[data-input]');
+const previousOutputText = document.querySelector('[data-previousOutput]')
 const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const clearButton = document.querySelector('.all-clear');
-const equalButton = document.querySelector('.equal-sign');
+const equalButton = document.querySelector('[data-equal]');
 
-const calculator = {
-  display: '',
-  operation: null,
-  prevNum: '',
-  currentNum: ''
-}
+class Calculator {
+  constructor(previousOutputText, currentOuputText) {
+    this.previousOutputText = previousOutputText;
+    this.currentOuputText = currentOuputText;
+    this.clear()
+  }
 
-function additon(a,b) {
-  return a + b;
-}
+  clear() {
+    this.currentOuput = '';
+    this.previousOutput = '';
+    this.operation = null;
+  }
 
-function subtraction(a,b) {
-  return a - b;
-}
+  appendNumber(number) {
 
-function multiply(a,b) {
-  return a * b;
-}
+  }
 
-function divison(a,b) {
-  return (a / b);
-}
+  chooseOperant(operation) {
 
-//get the input and slice the before and after inputs from where the operator is.
-//depending on the value of the operator, do the proper operation.
-//sum up the first two numbers if a second operation has been selected.
-function operate(operator, input) {
-  let operand;
-  let result;
-  console.log(calculator.display);
-}
+  }
 
-function chooseOperation(operation) {
+  compute() {
 
-}
+  }
 
-function updateDisplay(e) {
-  let { target } = e;
-  if(target.innerText === '.' && calculator.display.includes('.')) return;
-  calculator.display += target.innerText;
-  input.textContent = calculator.display;
-}
+  displayOutput() {
 
-numberButtons.forEach(btn => btn.addEventListener('click', updateDisplay));
-clearButton.addEventListener('click', () => console.log('AC fired'))
-equalButton.addEventListener('click', () => console.log('equal fired'))
+  }
+} 
+
+
+const calculator = new Calculator(previousOutputText, currentOuputText);
+

@@ -8,7 +8,10 @@
 </head>
 <body>
   <div class="calculator card">
-    <div type="text" class="calculator-screen z-depth-1" value=""></div>
+    <div class="calculator-screen">
+      <div data-previousOutput class='output-screen'></div>
+      <div data-input class='input' value="">0</div>
+    </div>
     <div class="calculator-keys">
       <button data-operator type="button" class="operator btn btn-info" value="+">+</button>
       <button data-operator type="button" class="operator btn btn-info" value="-">-</button>
@@ -27,7 +30,7 @@
       <button data-number type="button" value="0" class="btn btn-light waves-effect">0</button>
       <button data-number type="button" class="decimal function btn btn-secondary" value=".">.</button>
       <button type="button" class="all-clear function btn btn-danger btn-sm" value="all-clear">AC</button>
-      <button type="button" class="equal-sign operator btn btn-default" value="=">=</button>
+      <button data-equal type="button" class="equal-sign operator btn btn-default" value="=">=</button>
 
     </div>
   </div>
