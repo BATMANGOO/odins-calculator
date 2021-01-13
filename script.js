@@ -5,6 +5,7 @@ const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
 const clearButton = document.querySelector('.all-clear');
 const equalButton = document.querySelector('[data-equal]');
+const deleteButton = document.querySelector('[data-delete]');
 
 class Calculator {
   constructor(previousOutputText, currentOuputText) {
@@ -17,6 +18,10 @@ class Calculator {
     this.currentOuput = '';
     this.previousOutput = '';
     this.operation = null;
+  }
+
+  delete() {
+    this.currentOuput = this.currentOuput.slice(0,-1);
   }
 
   appendNumber(number) {
@@ -60,10 +65,29 @@ class Calculator {
     this.operation = null;
   }
 
+  addComma(number) {
+    const stringNum = number.toString();
+    const integerNums = parseFloat(stringNum.split('.')[0]);
+    const decimalNums = stringNum.split('.')[1];
+    let integerDisplay = '';
+    if (isNaN(integerNums)) {
+      integerDisplay = '';
+    } else {
+      integerDisplay = integerNums.toLocaleString('en', {
+        maximumFractionDigits: 0
+      });
+    }
+    if (decimalNums != null) {
+      return `${integerDisplay}.${decimalNums}`;
+    } else {
+      return integerDisplay;
+    }
+  }
+
   updateDisplay() {
-    this.currentOuputText.innerText = this.currentOuput;
+    this.currentOuputText.innerText = this.addComma(this.currentOuput);
     if(this.operation !== null) {
-      this.previousOutputText.innerText = `${this.previousOutput} ${this.operation}`
+      this.previousOutputText.innerText = `${this.addComma(this.previousOutput)} ${this.operation}`
     } else {
       this.previousOutputText.innerText = '';
     }
@@ -92,5 +116,12 @@ equalButton.addEventListener('click', () => {
   calculator.compute();
   calculator.updateDisplay();
 });
+
+deleteButton.addEventListener('click', () => {
+  calculator.delete();
+  calculator.updateDisplay();
+})
+
+numberButtons.forEach(btn => btn.style.backgroundColor = '#BFBFBF');
 
 

@@ -36,10 +36,10 @@
       justify-content: space-between;
       align-items: flex-end;
       width: 100%;
-      min-height: 80px;
+      min-height: 85px;
       border: none;
       background-color: #252525;
-      color: #fff;
+      color: #E3B261;
       text-align: right;
       word-wrap: break-word;
       word-break: break-all;
@@ -51,7 +51,6 @@
       background-color: #252525;
       border: none;
       min-height: 20px;
-      color: white;
       font-size: 1.5rem;
     }
 
@@ -69,7 +68,7 @@
     .equal-sign {
       background-color: #DD9E43;
       height: 100%;
-      grid-area: 2 / 4 / 6 / 5;
+      grid-area: 2 / 4 / 5 / 5;
     }
 
     .calculator-keys {
@@ -77,4 +76,8 @@
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 20px;
       padding: 20px;
+    }
+
+    .delete {
+      background-color: #DD9E43;
     }
