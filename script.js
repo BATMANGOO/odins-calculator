@@ -20,7 +20,8 @@ class Calculator {
   }
 
   appendNumber(number) {
-
+    if(number === '.' && this.currentOuput.includes('.')) return;
+    this.currentOuput = this.currentOuput.toString() + number.toString();
   }
 
   chooseOperant(operation) {
@@ -31,11 +32,23 @@ class Calculator {
 
   }
 
-  displayOutput() {
-
+  updateDisplay() {
+    this.currentOuputText.innerText = this.currentOuput;
   }
 } 
 
 
 const calculator = new Calculator(previousOutputText, currentOuputText);
+
+numberButtons.forEach(button => button.addEventListener('click', () => {
+  calculator.appendNumber(button.innerText);
+  calculator.updateDisplay();
+}));
+
+clearButton.addEventListener('click', button => {
+  calculator.clear();
+  calculator.updateDisplay()
+});
+
+
 
