@@ -122,6 +122,35 @@ deleteButton.addEventListener('click', () => {
   calculator.updateDisplay();
 })
 
+window.addEventListener('keydown', (e) => {
+  console.log(e);
+  if (e.key === equalButton.value || e.key === 'Enter') {
+    calculator.compute();
+    calculator.updateDisplay();
+  };
+  operatorButtons.forEach(operator => {
+    if (e.key === operator.value) {
+      calculator.chooseOperant(operator.value)
+      calculator.updateDisplay();
+    }
+  });
+  if (e.key === 'Delete' || e.code == 'Backspace') {
+    calculator.delete();
+    calculator.updateDisplay();
+  };
+  if (e.code === 'Space' || e.code === 'Escape') {
+    calculator.clear();
+    calculator.updateDisplay();
+  };
+  numberButtons.forEach(button => {
+    if (e.key === button.innerText) {
+      calculator.appendNumber(button.innerText);
+      calculator.updateDisplay();
+    }
+  });
+})
+
+
 numberButtons.forEach(btn => btn.style.backgroundColor = '#BFBFBF');
 
 
