@@ -123,7 +123,6 @@ deleteButton.addEventListener('click', () => {
 })
 
 window.addEventListener('keydown', (e) => {
-  console.log(e);
   if (e.key === equalButton.value || e.key === 'Enter') {
     calculator.compute();
     calculator.updateDisplay();
